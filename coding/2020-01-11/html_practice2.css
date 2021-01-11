@@ -1,0 +1,32 @@
+h1
+{
+	font-weight: bolder;
+}
+h3
+{
+	font-weight: bolder;
+	text-align: center;
+}
+.ref
+{
+	font-weight: small;
+	color: 	#808080;
+	word-break: normal;
+	text-align: center;
+}
+td
+{
+  width: 200px;
+  height: 200px;
+  padding: 50px;
+  justify-content: space-around;
+  background-color: #ffffff;
+}
+img
+{
+	margin-top: -40px;
+	width: 100px;
+ 	height: 100px;
+ 	align-content: center;
+ 	border-radius: 100px;
+}
