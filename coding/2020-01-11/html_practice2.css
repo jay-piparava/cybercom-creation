@@ -16,11 +16,13 @@ h3
 }
 td
 {
-  width: 200px;
-  height: 200px;
-  padding: 50px;
-  justify-content: space-around;
-  background-color: #ffffff;
+	width: 200px;
+  	height: 200px;
+  	padding: 40px;
+  	justify-content: space-around;
+  	background-color: #ffffff;
+	border: solid 8px #f2f2f2;
+
 }
 img
 {
