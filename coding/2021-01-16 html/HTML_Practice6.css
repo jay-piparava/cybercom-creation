@@ -1,0 +1,33 @@
+.header
+{
+	height: 200px;
+	width: 650px;
+}
+img
+{
+	height: 200px;
+	width: 650px;
+}
+.rows input[type=text]
+{
+	height: 40px;
+	width: 450px;
+	margin-top: 20px;
+	font-weight: small;
+}
+textarea
+{
+	height: 130px;
+	width: 450px;
+	margin-top: 20px;
+	font-weight: small;	
+}
+button
+{
+	height: 40px;
+	width: 80px;
+	margin-top: 20px;
+	font-weight: small;
+	border-radius: 6px;	
+	background: #8080ff;	
+}
