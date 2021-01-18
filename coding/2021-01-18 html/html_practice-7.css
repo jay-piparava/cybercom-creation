@@ -1,0 +1,37 @@
+div.relative {
+  position: relative;
+  width: 800px;
+  border: 3px solid black;
+  margin-bottom: 20px;
+} 
+
+div.absolute {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  height: 10px;
+  background-color: white;
+}
+.content
+{
+	text-align: left;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+textarea
+{
+	margin-top: 10px;
+	margin-left: 100px;
+}
+input[type=text],input[type=file],select
+{
+	margin-left: 100px;
+}
+input[type=submit],input[type=reset]
+{
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 40px;
+	width: 80px;
+}
