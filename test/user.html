@@ -26,30 +26,23 @@
 				</form>
 				<br><br><br>
 				<p align="left"><b>user list</b><br>
-					<table class="table">
-						<thead>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Password</th>
-							<th>DateofBirth</th>
-							<th>Age</th>
-							<th>Actions</th>
-						</thead>
+					
 					<script type="text/javascript">
 						var array = localStorage.getItem('user');
 						var record = JSON.parse(array);
-					
+						document.write('<table><thead><th>Name</th><th>Email</th><th>Password</th><th>DateofBirth</th><th>Age</th><th>Actions</th></thead>');
 						for(var k = 0 ; k < record.length; k++)
-						{	
+						{	document.write('<tr>');
 							document.write('<td>'+ record[k].name + '</td>' );
 							document.write('<td>'+ record[k].email + '</td>' );
 							document.write('<td>'+ record[k].password + '</td>' );
 							document.write('<td>'+ record[k].bdate + '</td>' );
 							document.write('<td>'+ record[k].age + '</td>' );
-							document.write('<td>'+abc+'</td>' );
+							document.write('<td><button onclick="edit('+record[k].email+')">Delete</button></td>');
+							document.write('<td><button onclick="Delete('+record[k].email+')">Delete</button></td>');
 							document.write('</tr>');
 						}
-					
+					document.write('</table>');
 					</script>
 			</td>
 	</table>

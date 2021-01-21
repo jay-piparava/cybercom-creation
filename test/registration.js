@@ -26,3 +26,4 @@ function mycheck()
 		document.getElementById('msg').textContent = '';	
 	}
 }
+

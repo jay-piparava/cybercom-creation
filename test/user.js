@@ -29,3 +29,11 @@ function addrecord()
 	console.log(user);
 	localStorage.setItem('user',JSON.stringify(user));
 }
+function delete1(email)
+{
+	console.log(emial);
+}
+function edit(email)
+{
+	console.log(email);
+}
