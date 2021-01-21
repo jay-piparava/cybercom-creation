@@ -1,0 +1,44 @@
+.outer
+{
+	border: 1px solid black;
+	background-color: #ffcc99;
+	width: 500px;
+}
+input[type=email],[type=password],[type='text'],select
+{
+	border: 1px solid black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 30px;
+	width: 450px;
+	background-color: #fff2e6;
+}
+button
+{
+	border: 1px solid black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 30px;
+	width: 450px;
+	background-color: #ff8000;	
+}
+.left
+{
+	background-color: #ff8400;
+}
+.right
+{
+	width: 80%;
+}
+.table
+{
+	border: 1px solid black;
+}
+.content
+{
+	height: 80px;
+	width: 150px;
+	border: 1px solid black;
+	margin-left: 200px;
+	background-color: #ffdab3;
+}
