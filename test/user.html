@@ -9,42 +9,51 @@
 		<table class="table" width="100%">
 		<tr>
 			<td class="left" width="20%">
-				Hello,,name<br>
-				DashBoard<br>
-				Users<br>
-				Login Session<br>
-				Logout
+				Hello <label id="name"></label>
+				<br><a href="dashboard.html">Dashboard</a><br><br>
+				<b>Users</b><br><br>
+				<a href="usersession.html">user Session</a><br><br>
+				<a href="login.html">logout</a>
 			</td>
 			<td class="right" width="80%">
 				<p align="left"><b>Add User</b><br>
-					&nbsp;&nbsp;&nbsp;<input type="name" id="name">
-					&nbsp;&nbsp;&nbsp;<input type="email" id="email">
-					&nbsp;&nbsp;&nbsp;<input type="password" id="password">
-					&nbsp;&nbsp;&nbsp;<input type="date" id="bdate"><br>
-					&nbsp;&nbsp;&nbsp;<button>Adduser</button>
+					<form>
+					&nbsp;&nbsp;&nbsp;<input type="name" placeholder="Name" required id="iname">
+					&nbsp;&nbsp;&nbsp;<input type="email" placeholder="Email" required id="iemail">
+					&nbsp;&nbsp;&nbsp;<input type="password" placeholder="Password" required id="ipassword">
+					&nbsp;&nbsp;&nbsp;<input type="date" placeholder="Birthdate" required id="ibdate"><br>
+					&nbsp;&nbsp;&nbsp;<input type="submit" name="" value="Add User" onclick="addrecord()">
+				</form>
 				<br><br><br>
 				<p align="left"><b>user list</b><br>
-					<table>
+					<table class="table">
 						<thead>
-							<td>Name</td>
-							<td>Email</td>
-							<td>Password</td>
-							<td>Birthdate</td>
-							<td>Age</td>
-							<td>Action</td>
-
+							<th>Name</th>
+							<th>Email</th>
+							<th>Password</th>
+							<th>DateofBirth</th>
+							<th>Age</th>
+							<th>Actions</th>
 						</thead>
-						<tbody>
-							<td>1</td>
-							<td>aaa</td>
-							<td>qqq</td>
-							<td>Birthdate</td>
-							<td>Age</td>
-							<td>Action</td>
-						</tbody>
-					</table>
+					<script type="text/javascript">
+						var array = localStorage.getItem('user');
+						var record = JSON.parse(array);
+					
+						for(var k = 0 ; k < record.length; k++)
+						{	
+							document.write('<td>'+ record[k].name + '</td>' );
+							document.write('<td>'+ record[k].email + '</td>' );
+							document.write('<td>'+ record[k].password + '</td>' );
+							document.write('<td>'+ record[k].bdate + '</td>' );
+							document.write('<td>'+ record[k].age + '</td>' );
+							document.write('<td>'+abc+'</td>' );
+							document.write('</tr>');
+						}
+					
+					</script>
 			</td>
 	</table>
 	</center>
 </body>
+<script type="text/javascript" src="user.js"></script>
 </html>

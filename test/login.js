@@ -4,18 +4,14 @@ function mylogin()
 	var record = JSON.parse(array);
 	var email = document.getElementById('email').value;
 	var password = document.getElementById('password').value;
-	var done = false;
-	if(email.includes(record[1]) && password.includes(record[2]))
-	{
-		done = true;
-	}
-	else
+	if(!record[1] == email && record[2] == password)
 	{
 		document.getElementById('lbl').textContent = 'Username Or Passeord are inCorrect...';
 	}
-	if(done)
+	else
 	{
-		 location.replace("dashboard.html");
+		window.location.href = "dashboard.html";
+		
 	}
 }
 function myreg()
