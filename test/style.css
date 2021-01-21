@@ -4,7 +4,7 @@
 	background-color: #ffcc99;
 	width: 500px;
 }
-input[type=email],[type=password],[type='text'],select
+.type
 {
 	border: 1px solid black;
 	margin-top: 20px;
@@ -13,7 +13,7 @@ input[type=email],[type=password],[type='text'],select
 	width: 450px;
 	background-color: #fff2e6;
 }
-button
+.submit
 {
 	border: 1px solid black;
 	margin-top: 20px;
@@ -41,4 +41,9 @@ button
 	border: 1px solid black;
 	margin-left: 200px;
 	background-color: #ffdab3;
+}
+thead
+{
+	background-color: #29293d;
+	color: white;
 }

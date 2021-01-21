@@ -3,30 +3,30 @@
 <head>
 	<title>Registratiom</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="registration.js"></script>
 </head>
 <body>
 		<br><br>
 		<center>
 			<div class='outer'><br><h1><b>Registration</b></h1>
-			<div><input type="text" id="name_r"></div>
-			<div><input type="email" id="email_r"></div>
-			<div><input type="password" id="password_r"></div>
-			<div><input type="password" id="repassword_r"></div>
-			<select id="city">
-				<option>Rajkot</option>
+			<div><input class="type" type="text" placeholder="Name" id="name"></div>
+			<div><input class="type" type="email" placeholder="Email" id="email"></div>
+			<div><input class="type" type="password" placeholder="Password" id="password"></div>
+			<div><input class="type" type="password" placeholder="Re-Enter Password" id="repassword"></div>
+			<select class="type" id="city">
+				<option selected>Rajkot</option>
 				<option>Baroda</option>
 				<option>Jamnagar</option>
 			</select>
-			<select>
-				<option>Gujarat</option>
+			<select class="type" placeholder="" id="state">
+				<option selected>Gujarat</option>
 				<option>Delhi</option>
 				<option>Mumbai</option>
 			</select>
 			<br><input type="checkbox" id="check" name="check"><b>Terms & condition
-			<div><button id="login">Login</button></div>
-			<b>OR</b>
-			<div><button id="reg">REGISTER NOW</button></div>
+			<div><button class="submit" id="reg" onclick="data()">REGISTER NOW</button></div>
 		</div>
 		</center>
 </body>
+
 </html>
