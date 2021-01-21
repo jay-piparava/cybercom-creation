@@ -3,14 +3,16 @@
 <head>
 	<title>Registratiom</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="registration.js"></script>
+	
 </head>
 <body>
 		<br><br>
 		<center>
 			<div class='outer'><br><h1><b>Registration</b></h1>
 			<div><input class="type" type="text" placeholder="Name" id="name"></div>
-			<div><input class="type" type="email" placeholder="Email" id="email"></div>
+			<div><input class="type" type="email" placeholder="Email" id="email" onkeydown ="mycheck()">
+				<br><label id='msg'></label>
+			</div>
 			<div><input class="type" type="password" placeholder="Password" id="password"></div>
 			<div><input class="type" type="password" placeholder="Re-Enter Password" id="repassword"></div>
 			<select class="type" id="city">
@@ -28,5 +30,5 @@
 		</div>
 		</center>
 </body>
-
+<script type="text/javascript" src="registration.js"></script>
 </html>
