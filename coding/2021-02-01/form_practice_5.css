@@ -1,0 +1,10 @@
+.div
+{
+	border: 1px solid white;
+	background-color: #ccffcc;
+	width: 550px;
+}
+.error
+{
+	color: red;
+}
