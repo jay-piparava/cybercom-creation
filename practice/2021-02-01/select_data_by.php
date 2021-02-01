@@ -16,7 +16,7 @@ if(isset($_POST['uh']) && !empty($_POST['uh'])) {
 		echo mysqli_error($conn);
 	}
 } else {
-	echo "Select value...";
+	echo "Select value....";
 }
 
 ?>
