@@ -1,11 +1,12 @@
 <?php
 
 require 'mysql_connect_nd_select_db.php';
-$user = $_SERVER['REMOTE_ADDR'];
+// $user = $_SERVER['REMOTE_ADDR'];
+$user = '122.00.11.00';
 function ip_exists($ip){
 	global $user;
 	global $conn;
-	$qry = "select ip from ip_add where ip = '$user'";
+	echo $qry = "select ip from ip_add where ip = '$user'";
 	$res = mysqli_query($conn,$qry);
 	if(mysqli_num_rows($res)==0) {
 		return  false;
@@ -44,6 +45,6 @@ if(!ip_exists($user))
 	update_count();
 	ip_add($user);
 }
-update_count();
+
 
 ?>
