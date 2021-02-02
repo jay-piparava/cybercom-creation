@@ -95,7 +95,7 @@ function test_input($data){
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="reset" name="reset" value="Reset">
-									<input type="submit" name="submit" id="form1" value="Submit form" onclick="check()">
+									<input type="submit" name="submit" id="form1" value="Submit form">
 				</td>
 				</tr>
 			</table>
