@@ -29,6 +29,6 @@ require_once('server.php');
 	</div>
 	</form>
 	</center>
-	<script type="text/javascript" src="form_practice_51.js"></script>
+	<script type="text/javascript" src="form_practice_5.js"></script>
 </body>
 </html>
