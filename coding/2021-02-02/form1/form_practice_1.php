@@ -1,6 +1,7 @@
 <?php
-	$name = $password = $address = $age = $file = $gender = '';
-	$nameerror = $passworderror = $addresserror = $ageerror = $fileerror = $generr = $checkboxError = '';
+require_once('connector.php');
+$name = $password = $address = $age = $file = $gender = $check = '';
+$nameerror = $passworderror = $addresserror = $ageerror = $fileerror = $generr = $checkboxError = '';
 if (isset($_POST['submit'])) {
 	
 	if (empty($_POST['name'])) {
@@ -33,15 +34,9 @@ if (isset($_POST['submit'])) {
 	} else {
 		$gender = test_input($_POST['gender']);
 	}
-	// echo "<center><b>Your Data </b>";
-	// echo "<br>Your Name : $name";
+	
 	$p1 = $password;
-	// echo "<br>Your Address : $address";
-	// echo "<br>Your Gender : $gender";
-	// echo "<br>Your Age : $age";
-	// echo "<br>Your File : $file";
-	// echo "<br>Your Hobby :<br>";
-	$check = '';
+	
 	if(!empty($_POST['checkarr'])){
       
         $check = $_POST['checkarr'];
@@ -50,57 +45,60 @@ if (isset($_POST['submit'])) {
     	$checkboxError = "Select atleast one.....";
     }
 	//now we insert this data in to a database
-	require_once('connector.php');
-
-	function fetch_data($column,$table){
-		global $conn;
-		$qry = "select $column from $table";
-		if($result = mysqli_query($conn, $qry)){
-		    if(mysqli_num_rows($result) > 0){
-		    	echo "<table>";
-	            echo "<tr>";
-	                echo "<th>id</th>";
-	                echo "<th>Name</th>";
-	                echo "<th>Password</th>";
-	                echo "<th>Address</th>";
-	                echo "<th>Game</th>";
-	                echo "<th>Age</th>";
-	                echo "<th>Gender</th>";
-	                echo "<th>File</th>";
-	            echo "</tr>";
-				while($data = mysqli_fetch_array($result)){
-					echo "<tr>";
-	            		echo "<td>".$data['id']."</td>";
-	            		echo "<td>".$data['name']."</td>";
-	            		echo "<td>".$data['password']."</td>";
-	            		echo "<td>".$data['address']."</td>";
-	            		echo "<td>".$data['game']."</td>";
-	            		echo "<td>".$data['age']."</td>";
-	            		echo "<td>".$data['gender']."</td>";
-	            		echo "<td>".$data['file']."</td>";
-	            	echo "</tr>";
-				}            	
-	        echo "</table>";	
-		    } else{
-		        echo "No data found";
-		    }
-		} else {
-			echo "Error:".mysql_errno();
-		} 
-	}
+	if(!empty($name) && !empty($password) && !empty($address) && !empty($age) && !empty($file) && !empty($gender) && !empty($check)) {
 		//insert data
-		$qry = "insert into form1 values ('','$name','$p1','$address','$check','$gender','$age','$file')";
-		mysqli_query($conn,$qry);
-		fetch_data('*','form1');
-		// Close connection
-		mysqli_close($conn);
+ 		$qry = "insert into form1 values ('','$name','$p1','$address','$check','$gender','$age','$file')";
+ 		mysqli_query($conn,$qry);
+ 		//get data from database
+ 		fetch_data('*','form1');
+ 		// Close connection
+ 		mysqli_close($conn);
+	} 
+}
+
+function fetch_data($column,$table){
+	global $conn;
+	$qry = "select $column from $table";
+	if($result = mysqli_query($conn, $qry)){
+		if(mysqli_num_rows($result) > 0){
+		    echo "<table>";
+	        echo "<tr>";
+	            echo "<th>id</th>";
+	            echo "<th>Name</th>";
+	            echo "<th>Password</th>";
+	            echo "<th>Address</th>";
+	            echo "<th>Game</th>";
+	            echo "<th>Age</th>";
+	            echo "<th>Gender</th>";
+	            echo "<th>File</th>";
+            echo "</tr>";
+			while($data = mysqli_fetch_array($result)){
+				echo "<tr>";
+	          		echo "<td>".$data['id']."</td>";
+	           		echo "<td>".$data['name']."</td>";
+	           		echo "<td>".$data['password']."</td>";
+	           		echo "<td>".$data['address']."</td>";
+	           		echo "<td>".$data['game']."</td>";
+	           		echo "<td>".$data['age']."</td>";
+	           		echo "<td>".$data['gender']."</td>";
+	           		echo "<td>".$data['file']."</td>";
+	           	echo "</tr>";
+			}            	
+	    echo "</table>";	
+		} else{
+		    echo "No data found";
+	    }
+	} else {
+		echo "Error:".mysql_errno();
+	} 
+		
 }
 function test_input($data){
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
 ?>
 <!DOCTYPE html>
 <html>

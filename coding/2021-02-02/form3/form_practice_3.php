@@ -41,7 +41,11 @@ if (isset($_POST['submit'])) {
 	if (empty($_POST['email'])) {
 		$emaile = 'This filed is required...';
 	} else {
-	 $email = test_input($_POST['email']);
+	 	$email = test_input($_POST['email']);
+	 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  			$emaile = "Invalid email format...";
+  			$email = '';
+		}
 	}
 	if (empty($_POST['phone'])) {
 		$phonee = 'This filed is required...';
@@ -68,11 +72,12 @@ if (isset($_POST['submit'])) {
 	}
 	if (!empty($name) && !empty($lname) && !empty($gender) && !empty($month) && !empty($year) && !empty($day) && !empty($country) && !empty($email) && !empty($phone) && !empty($password) &&  empty($agree)) {
 		$bdate = "$day - $month - $year";
-		
-		//insert data
-		$qry = "insert into form3 values ('','$name','$lname','$bdate','$gender','$email','$phone','$password')";
-		mysqli_query($conn,$qry);
-		fetch_data('*','form3');	
+		if ($password == $cpassword) {
+			//insert data
+			$qry = "insert into form3 values ('','$name','$lname','$bdate','$gender','$email','$phone','$password')";
+			mysqli_query($conn,$qry);
+			fetch_data('*','form3');
+		}	
 	}
 }
 function test_input($data){

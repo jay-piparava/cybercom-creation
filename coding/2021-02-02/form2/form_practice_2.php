@@ -54,17 +54,18 @@ if (isset($_POST['submit'])) {
 		$checkerr = "You must accept the condition..";
 	}
 	 $bdate = "$year-$month-$day";
-	//for insert a data
-	//insert data
+	if(!empty($name) && !empty($pass) && !empty($gender) && !empty($address) && !empty($day) && !empty($month) && !empty($year) && !empty($game) && !empty($status) && empty($check)){
+		//for insert a data
+		$qry = "insert into form2 values ('','$name','$pass','$gender','$address','$bdate','$game','$status')";
+		mysqli_query($conn,$qry);
 	
-	$qry = "insert into form2 values ('','$name','$pass','$gender','$address','$bdate','$game','$status')";
-	mysqli_query($conn,$qry);
-	
+		//calling data display function
+		fetch_data('*','form2');
 
-	//calling data display function
-	fetch_data('*','form2');
-	// Close connection
-	mysqli_close($conn);
+		//Close connection
+		mysqli_close($conn);
+	}
+
 }
 function test_input($data){
 	$data = trim($data);
@@ -207,6 +208,6 @@ function fetch_data($column,$table){
 	</div>
 	</form>
 	</center>
-	<script type="text/javascript" src="form_practice_2.js"></script>
+	<script type="text/javascript" src="form_practice_21.js"></script>
 </body>
 </html>

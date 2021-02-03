@@ -12,6 +12,10 @@ if (isset($_POST['submit'])) {
 		$emaile = "Please Enter Email..";
 	} else {
 		 $email = test_input($_POST['email']);
+		 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  			$emaile = "Invalid email format...";
+  			$email = '';
+		}
 	}
 	if (empty($_POST['sub'])) {
 		$subjecte = "Please Enter Name..";
