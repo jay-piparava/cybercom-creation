@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require "lib/DataSource.php";
 require "errors/error.php";
 use App\DataSource;
@@ -40,8 +42,8 @@ if (isset($_POST['submit'])) {
 		$values = array($name,$email,$phone,$title,$date);
 		$tablename = 'users';
 		$data = new DataSource();
-		if($data->insert($filed,$values,$tablename)){
-			echo "<script>alert('Record Insert Successfully.....');</script>";
+		if($data->insert($filed,$values,$tablename)){  
+			$_SESSION['insert'] = "Record inserted Successfully...";
 			header('location:contacts.php');
 		} else {
 			echo "<script>alert('Error In Insert Record.....');</script>";

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "lib/DataSource.php";
 require "errors/error.php";
 use App\DataSource;
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 		$val = array($name,$email,$phone,$title,$date);
 		$table = 'users';
 		if($data->update($filed,$val,$table,$selection)) {
-			echo "<script>alert('Record updated Successfully....');</script>";
+			$_SESSION['update'] = "done";
 			header( "location:contacts.php" );
 		}
 	}	

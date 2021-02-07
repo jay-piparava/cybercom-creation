@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require 'header.php';
 require 'lib/DataSource.php';
@@ -31,6 +32,33 @@ $result = $data->getdata($fileds,$table);
 <div class="container">
     <h1>Read Contact</h1>
     <hr>
+
+    <div>
+        <div class="messageShow">
+            <?php
+            if(isset($_SESSION['insert'])) {
+                session_destroy();
+            ?>
+                <script type="text/javascript">
+                    $('.messageShow').css('float','right');
+                    $('.messageShow').html("<label class='fadeoutmsg'>Record Insertrd successfully...</label>");
+                    $(".fadeoutmsg").fadeOut(3000);  
+                </script>
+         <?php 
+            }
+            if (isset($_SESSION['update'])) {
+                session_destroy();
+        ?>      <script type="text/javascript">
+                    $('.messageShow').css('float','right');
+                    $('.messageShow').html("<label class='fadeoutmsg'>Record Updated successfully...</label>");
+                    $(".fadeoutmsg").fadeOut(3000);
+                </script>
+        <?php        
+            }
+        ?>
+        </div>
+    </div>
+
     <a class="btn" href="create.php">Create Contact</a><br><br>
     <table>
     	<tr>
@@ -44,8 +72,8 @@ $result = $data->getdata($fileds,$table);
     	</tr>
 <?php
         while ($data = mysqli_fetch_array($rs_result)) {    
-                  // Display each field of the records.    
-    	echo "<tr>";
+                  // each field of the records.    
+    	echo "<tr class='main_tr_".$data['id']."'>";
     		echo "<td>".$data['id']."</td>";
     		echo "<td>".$data['name']."</td>";
     		echo "<td>".$data['email']."</td>";

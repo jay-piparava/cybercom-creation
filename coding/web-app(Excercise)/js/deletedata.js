@@ -7,7 +7,11 @@ $('.delete').on('click',function(){
 	success: function(response){
 		if(response == 'success')
 		{
-			$('#'+id).remove();
+			$('.main_tr_'+id).css('display','none');
+			$('.main_tr_'+id).html('');
+			$('.messageShow').css('float','right');
+			$('.messageShow').html("<label class='fadeoutmsg'>Record Deleted successfully...</label>");
+			$(".fadeoutmsg").fadeOut(3000);  
 		}
 		else{
 			alert("Sorry! there is an error");
