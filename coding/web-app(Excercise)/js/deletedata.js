@@ -11,7 +11,7 @@ $('.delete').on('click',function(){
 			$('.main_tr_'+id).html('');
 			$('.messageShow').css('float','right');
 			$('.messageShow').html("<label class='fadeoutmsg'>Record Deleted successfully...</label>");
-			$(".fadeoutmsg").fadeOut(3000);  
+			$(".fadeoutmsg").fadeOut(5000);  
 		}
 		else{
 			alert("Sorry! there is an error");

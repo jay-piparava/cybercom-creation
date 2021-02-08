@@ -42,7 +42,7 @@ $result = $data->getdata($fileds,$table);
                 <script type="text/javascript">
                     $('.messageShow').css('float','right');
                     $('.messageShow').html("<label class='fadeoutmsg'>Record Insertrd successfully...</label>");
-                    $(".fadeoutmsg").fadeOut(3000);  
+                    $(".fadeoutmsg").fadeOut(5000);  
                 </script>
          <?php 
             }
@@ -51,7 +51,7 @@ $result = $data->getdata($fileds,$table);
         ?>      <script type="text/javascript">
                     $('.messageShow').css('float','right');
                     $('.messageShow').html("<label class='fadeoutmsg'>Record Updated successfully...</label>");
-                    $(".fadeoutmsg").fadeOut(3000);
+                    $(".fadeoutmsg").fadeOut(5000);
                 </script>
         <?php        
             }
@@ -80,9 +80,9 @@ $result = $data->getdata($fileds,$table);
     		echo "<td>".$data['phone']."</td>";
     		echo "<td>".$data['title']."</td>";
     		echo "<td>".$data['created']."</td>";?>
-    		<td><button><a href="update.php?id=<?php echo $data['id'] ?>">Edit</a></button></td>
+    		<td><button><a href="update.php?id=<?php echo $data['id'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a></button></td>
     <?php 
-            echo "<td><a href='#' class='delete' data-id='".$data['id']."'>Delete</a>";
+            echo "<td><button><a href='#' class='delete' data-id='".$data['id']."'><i class='fa fa-trash' aria-hidden='true'></i></a></button>";
                	echo "</tr>";
    }
 ?>

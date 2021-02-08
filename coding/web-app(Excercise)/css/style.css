@@ -83,7 +83,7 @@ span
 }   
 .pagination a.active 
 {   
-        background-color: pink;   
+        background-color: #00ff00;   
 }   
 .pagination a:hover:not(.active) 
 {   
