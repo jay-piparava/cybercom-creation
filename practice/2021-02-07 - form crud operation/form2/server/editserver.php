@@ -16,9 +16,7 @@ $years = $data[0];
 $months = $data[1];
 $days = $data[2];
 
-echo $result[0]['mstatus'];
-
-$games = explode(' ',$result[0]['game']);
+$games = explode(',',$result[0]['game']);
 $name = $pass = $gender = $address = $day = $month = $year = $game = $status = '';
 $nameerr = $passerr = $generr = $adderr = $dayerr = $montherr = $yearerr = $gameerr = $staterr = '';
 if (isset($_POST['submit'])) {
@@ -42,7 +40,7 @@ if (isset($_POST['submit'])) {
 	} else {
 		 $address = test_input($_POST['address']);
 	}
-	if (empty( $_POST['day'])) {
+	if (empty($_POST['day'])) {
 		$dayerr = $dayerrs;
 	} else {
 		 $day = test_input($_POST['day']);
@@ -50,7 +48,7 @@ if (isset($_POST['submit'])) {
 	if (empty( $_POST['month'])) {
 		$montherr = $montherrs;
 	} else {
-		 $month = test_input($_POST['month']);
+		 $months1 = test_input($_POST['month']);
 	}
 	if (empty( $_POST['year'])) {
 		$yearerr = $yearerrs;
@@ -65,16 +63,16 @@ if (isset($_POST['submit'])) {
 	if(!empty($_POST['chkarr'])){
       
         $game = $_POST['chkarr'];
-         $game = implode(" ", $game);
+         $game = implode(",", $game);
     } else {
     	$gameerr = $gameerrs;
     }
     if (empty( $_POST['accept'])) {
 		$checkerr = $checkerrs;
 	}
-	 $bdate = "$year-$month-$day";
-	if(!empty($name) && !empty($pass) && !empty($gender) && !empty($address) && !empty($day) && !empty($month) && !empty($year) && !empty($game) && !empty($status)){
-		
+	$bdate = $year."-".$months1."-".$day;
+	if(!empty($name) && !empty($pass) && !empty($gender) && !empty($address) && !empty($day) && !empty($months1) && !empty($year) && !empty($game) && !empty($status)){
+
 		$fileds = array('name','password','gender','address','dob','game','mstatus');
 		$values = array($name,$pass,$gender,$address,$bdate,$game,$status);
 
@@ -82,7 +80,7 @@ if (isset($_POST['submit'])) {
 		if($result = $data->update($fileds,$values,'form2',$selection)){
 			header('location:index.php');		
 		} else {
-			echo "<script>alert('Error In Insert Record...');</script>";
+			echo "<script>alert('Error In Update Record...');</script>";
 		}
 	}
 }

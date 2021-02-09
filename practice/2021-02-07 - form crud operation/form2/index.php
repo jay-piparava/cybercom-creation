@@ -81,7 +81,7 @@ require_once('server/server.php');
 				<td><input type="checkbox" name="chkarr[]" value="Hocky" data-error="#checkerr"> Hocky
 					<input type="checkbox" name="chkarr[]" value="Football" data-error="#checkerr"> Football
 					<input type="checkbox" name="chkarr[]" value="Cricket" data-error="#checkerr"> Cricket
-					<input type="checkbox" name="chkarr[]" value="Football" data-error="#checkerr"> vollyBall
+					<input type="checkbox" name="chkarr[]" value="Vollyball" data-error="#checkerr"> vollyBall
 					<br><span class="error" id="checkerr"><?php echo $gameerr; ?></span>
 				</td>
 			</tr>

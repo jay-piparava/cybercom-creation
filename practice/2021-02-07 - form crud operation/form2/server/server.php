@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
 	if(!empty($_POST['chkarr'])){
       
         $game = $_POST['chkarr'];
-         $game = implode(" ", $game);
+         $game = implode(",", $game);
     } else {
     	$gameerr = $gameerrs;
     }
@@ -96,7 +96,7 @@ function fetch_data($column,$table){
 	            echo "<th colspan = '2'>Action</th>";
 	        echo "</tr>";
 			foreach ($result as $data){
-				echo "<tr>";
+				echo "<tr class='del".$data['id']."'>";
 	            	echo "<td>".$data['id']."</td>";
 	            	echo "<td>".$data['name']."</td>";
 	            	echo "<td>".$data['password']."</td>";
@@ -106,7 +106,7 @@ function fetch_data($column,$table){
 	           		echo "<td>".$data['game']."</td>";
 	           		echo "<td>".$data['mstatus']."</td>"; ?>
 	           		<td><a href = 'edit.php?id=<?php echo $data['id'];  ?>'>Edit</a></td>
-	        <?php   echo "<td>Delete</td>";
+	        <?php    echo "<td><a href='#' class='delete' data-id='".$data['id']."'>Delete</a>";
 	           	echo "</tr>";
 			}            	
 	    	echo "</table>";

@@ -56,7 +56,7 @@ require_once('server/editserver.php');
 					<?php $month = Array ('January','February','March','April','May','June','July','August','September','October','November','December' );
 						for ($i=0; $i < 12; $i++) { 
 							if ($month[$i] == $months) { ?>
-							<option value="<?php echo $month[i]; ?>" selected ><?php echo $month[$i];?></option>	
+							<option value="<?php echo $month[$i]; ?>" selected ><?php echo $month[$i];?></option>	
 						<?php	}
 						else{
 								echo "<option>$month[$i]</option>";
@@ -93,7 +93,7 @@ require_once('server/editserver.php');
 				</td>
 			</tr><tr>
 				<td>Select game:</td>
-				<td><?php 
+				<td><?php
 				if(in_array('Hocky',$games)){
 					$check_hockey="checked";
 				}
@@ -133,7 +133,7 @@ require_once('server/editserver.php');
 					<?php if($result[0]['mstatus'] == 'Marrid') { ?> 
 						<input type="radio" name="merrage" value="Marrid" data-error="#mrgerr" checked> Marrid
 						<input type="radio" name="merrage" value="UnMarrid" data-error="#mrgerr"> Unmarrid
-					<?php }if($result[0]['mstatus'] == 'Unmarrid') { ?>
+					<?php }if($result[0]['mstatus'] == 'UnMarrid') { ?>
 						<input type="radio" name="merrage" value="Marrid" data-error="#mrgerr"> Marrid
 						<input type="radio" name="merrage" value="UnMarrid" data-error="#mrgerr" checked> Unmarrid
 					<?php }?>

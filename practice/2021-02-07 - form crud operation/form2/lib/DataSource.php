@@ -99,7 +99,7 @@ class DataSource
 			array_push($done, $data);
 		}
 		$set = implode(',', $done);
-		$qry = "update $table set $set where id = $selection";
+		echo $qry = "update $table set $set where id = $selection";
 		if ($res = mysqli_query($this->conn , $qry)) {
 			return true;
 		} else {

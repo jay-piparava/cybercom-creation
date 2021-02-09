@@ -70,3 +70,25 @@ $(document).ready(function () {
       }
     });
   });
+
+  $('.delete').on('click',function(){
+    var id=$(this).data('id');
+    console.log(id);
+    $.ajax({
+    url:"./server/delete.php",
+    data:{row_id:id,action:"submit"},
+    type:'POST',
+    success: function(response){
+      if(response == 'success')
+      {
+        $('.del'+id).css('display','none');
+        $('.del'+id).html(''); 
+      }
+      else{
+        alert("Sorry! there is an error");
+      }
+    },error:function(error){
+      console.log(error);
+      }
+    })
+  })
