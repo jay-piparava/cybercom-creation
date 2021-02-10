@@ -5,6 +5,7 @@ require "errors/errors.php";
 use App\DataSource;
 
 $pass = $email ="";
+$flag = 0;
 $passerr = $eerror = $loginerr ="";
 
 if (isset($_POST['Login'])) {
@@ -25,20 +26,23 @@ if (isset($_POST['Login'])) {
 	if (!empty($pass) && !empty($email)) {
         $data = new DataSource();
         $pass = md5($pass);
-        $qry = "select email from user where email = '$email' and password = '$pass'";
+        $qry = "select email,id from user where email = '$email' and password = '$pass'";
         if($data->login($qry)){
         	$data = new DataSource();
         	$fileds=array('lastlogin');
         	$values=array(date("Y-m-d"));
         	$fild_to_select = 'email';
         	$select = $_SESSION['user_email'];
-        	echo $select;
         	$data->update($fileds,$values,'user',$fild_to_select,$select);
-        	
-            header('location:dashboard.php');
+        	$flag = 1;
+            //header('location:blog.php');
         } else {
             $loginerr = "username or passeord are incorrect....";
         }
+        if ($flag) {
+        	header('location:blog.php');
+        }else
+        echo "no";
 	}
 }
 function test_input($data){

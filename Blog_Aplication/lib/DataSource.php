@@ -39,8 +39,10 @@ class DataSource
             if (mysqli_num_rows($res) > 0) {
                 while ($data = mysqli_fetch_assoc($res)) {
                      $email = $data['email'];
+                     $id = $data['id'];
                 }
                 $_SESSION['user_email']=$email;
+                $_SESSION['id']=$id;
                 return true;
             } else {
                 return false;
@@ -101,6 +103,22 @@ class DataSource
 	 	}
 	}
 
+	//getData
+	public function getDataWithQuery($query){
+	 	if ($res = mysqli_query($this->conn , $qry)) {
+	 		if (mysqli_num_rows($res) > 0) {
+	 			while ($data = mysqli_fetch_assoc($res)) {
+	 				array_push($datas, $data);	
+	 			}
+	 		} else {
+	 			return false;
+	 		}
+	 		return $datas;
+	 	} else {
+	 		echo "<script>alert('Error in query...');</script>";
+	 	}
+	 }
+
 	public function getDataWithId($fileds,$table,$selection){
 		$filed = implode(',', $fileds);
 		$datas = array();
@@ -118,6 +136,26 @@ class DataSource
 	 		echo "<script>alert('Error in query...');</script>";
 	 	}
 	 }
+
+	 //get post
+	 public function getDataPost($fileds,$table,$selection){
+		$filed = implode(',', $fileds);
+		$datas = array();
+	 	$qry = "select $filed from $table where user_id=$selection";
+	 	if ($res = mysqli_query($this->conn , $qry)) {
+	 		if (mysqli_num_rows($res) > 0) {
+	 			while ($data = mysqli_fetch_assoc($res)) {
+	 				array_push($datas, $data);	
+	 			}
+	 		} else {
+	 			return false;
+	 		}
+	 		return $datas;
+	 	} else {
+	 		echo "<script>alert('Error in query...');</script>";
+	 	}
+	 }
+
 
 	 //function for delete a data....
 	public function deleteData($table,$id) {
