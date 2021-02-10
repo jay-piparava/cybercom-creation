@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require "lib/DataSource.php";
 require "errors/error.php";
 use App\DataSource;
