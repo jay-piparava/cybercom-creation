@@ -1,0 +1,6 @@
+<?php
+
+require "categoty.php";
+
+?>
+
